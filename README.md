@@ -8,7 +8,9 @@ All your files, classes and methods must be unit tested.
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go test
  ./models
+
 ok      github.com/johnson-oragui/golang-almost-a-circle/models (cached)
+
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 
 
 File: models/models_test.go

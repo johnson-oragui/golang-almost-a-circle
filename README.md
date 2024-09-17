@@ -2,7 +2,8 @@
 
 
 ### Tasks
-0. **If it's not tested it doesn't work**
+## Task 0.
+**If it's not tested it doesn't work**
 mandatory
 All your files, classes and methods must be unit tested.
 
@@ -15,7 +16,8 @@ johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-
 
 File: models/models_test.go
    
-1. **Base class**
+## Task 1.
+**Base class**
 mandatory
 Create a package named models with the following functionality:
 
@@ -60,10 +62,15 @@ func main() {
 ```
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go run Main.go
+
 1
+
 2
+
 3
+
 12
+
 4
 
 Github Repo: golang-almost_a_circle

@@ -77,9 +77,9 @@ johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-
 4
 
 Github Repo: golang-almost_a_circle
-File: models/base.go models/base_test.go
+File: models/base.go, models/base_test.go
 
-## Task 3
+## Task 2
 **First Rectangle**
 
 - Define a struct named Rectangle that embeds the Base struct.
@@ -138,4 +138,4 @@ johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 
 
-File: models/Rectangle.go models/rectangle_test.go
+File: models/Rectangle.go, models/rectangle_test.go

@@ -77,4 +77,65 @@ johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-
 4
 
 Github Repo: golang-almost_a_circle
-File: models/base.go
+File: models/base.go models/base_test.go
+
+## Task 3
+**First Rectangle**
+
+- Define a struct named Rectangle that embeds the Base struct.
+- Define public fields: width, height, x, and y of type int.
+NewRectangle function:
+
+- Implement a function named NewRectangle that takes a variable number of int arguments.
+Inside the function:
+- Create a new instance of the Rectangle struct using &Rectangle{}.
+- Extract values for width, height, x, and y from the variadic arguments.
+- Create a new Base instance using NewBase and assign it to the embedded Base field of the Rectangle instance.
+- Return a pointer to the newly created Rectangle struct.
+
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$  cat Main.go
+```
+package main
+
+import (
+	"fmt"
+
+	"github.com/johnson-oragui/golang-almost-a-circle/models"
+)
+
+func TaskOneMain() {
+	r1 := models.NewRectangle(10, 2)
+
+	fmt.Println(r1.Id)
+	r2 := models.NewRectangle(2, 10)
+
+	fmt.Println(r2.Id)
+
+	r3 := models.NewRectangle(10, 2, 0, 0, 12)
+
+	fmt.Println(r3.Id)
+
+	r4 := models.NewRectangle()
+
+	fmt.Println(r4.Id)
+}
+
+func main() {
+	TaskOneMain()
+	
+}
+```
+
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go run Main.go
+
+1
+
+2
+
+12
+
+3
+
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 
+
+File: models/Rectangle.go models/rectangle_test.go

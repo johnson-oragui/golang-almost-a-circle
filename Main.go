@@ -6,9 +6,7 @@ import (
 	"github.com/johnson-oragui/golang-almost-a-circle/models"
 )
 
-
-func main() {
-
+func TaskZeroMain() {
 	b1 := models.NewBase()
 
 	b2 := models.NewBase()
@@ -20,4 +18,9 @@ func main() {
 	b5 := models.NewBase()
 
 	fmt.Printf("%d\n%d\n%d\n%d\n%d\n", b1.Id, b2.Id, b3.Id, b4.Id, b5.Id)
+}
+
+func main() {
+	TaskZeroMain()
+	
 }

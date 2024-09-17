@@ -1,29 +1,34 @@
-GOLANG-ALMOST-A-CIRCLE
+### GOLANG-ALMOST-A-CIRCLE
 
 
-Tasks
-0. If it's not tested it doesn't work
+### Tasks
+0. **If it's not tested it doesn't work**
 mandatory
 All your files, classes and methods must be unit tested.
 
-File: tests/
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go test
+ ./models
+ok      github.com/johnson-oragui/golang-almost-a-circle/models (cached)
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 
+
+File: models/models_test.go
    
-1. Base class
+1. **Base class**
 mandatory
 Create a package named models with the following functionality:
 
 Struct Base:
 
-Define a struct named Base with a single field Id of type int.
+- Define a struct named Base with a single field Id of type int.
 NewBase function:
 
-Implement a function named NewBase that takes an optional int argument id.
+ - Implement a function named NewBase that takes an optional int argument id.
 Inside the function:
-Create a new instance of the Base struct using &Base{}.
-If id is provided and greater than 0, assign it to the Id field of the new instance.
-Otherwise, increment a global variable named nbObjects.
-Assign the incremented value of nbObjects to the Id field of the new instance.
-Return a pointer to the newly created Base struct.
+ - Create a new instance of the Base struct using &Base{}.
+ - If id is provided and greater than 0, assign it to the Id field of the new instance.
+ - Otherwise, increment a global variable named nbObjects.
+ - Assign the incremented value of nbObjects to the Id field of the new instance.
+ - Return a pointer to the newly created Base struct.
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$  cat Main.go
 ```

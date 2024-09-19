@@ -6,39 +6,39 @@ import (
 	"github.com/johnson-oragui/golang-almost-a-circle/models"
 )
 
-func TaskZeroMain() {
-	b1 := models.NewBase()
+func TaskTwoMain() {
+	if r1, err := models.NewRectangle(10, 2); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+	fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r1.Width, r1.Height, r1.X, r1.Y, r1.Id)
+	}
 
-	b2 := models.NewBase()
+	if r2, err := models.NewRectangle(12, 0); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+	fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r2.Width, r2.Height, r2.X, r2.Y, r2.Id)
+	}
 
-	b3 := models.NewBase()
+	if r3, err := models.NewRectangle(10, 2, 0, 0, 12); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+	fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r3.Width, r3.Height, r3.X, r3.Y, r3.Id)
+	}
 
-	b4 := models.NewBase(12)
+	if r4, err := models.NewRectangle(10); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+	fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r4.Width, r4.Height, r4.X, r4.Y, r4.Id)
+	}
+	if r5, err := models.NewRectangle(20, 10, -1, -2); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+		fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r5.Width, r5.Height, r5.X, r5.Y, r5.Id)
+	}
 
-	b5 := models.NewBase()
-
-	fmt.Printf("%d\n%d\n%d\n%d\n%d\n", b1.Id, b2.Id, b3.Id, b4.Id, b5.Id)
-}
-
-func TaskOneMain() {
-	r1 := models.NewRectangle(10, 2)
-
-	fmt.Println(r1.Id)
-	r2 := models.NewRectangle(2, 10)
-
-	fmt.Println(r2.Id)
-
-	r3 := models.NewRectangle(10, 2, 0, 0, 12)
-
-	fmt.Println(r3.Id)
-
-	r4 := models.NewRectangle()
-
-	fmt.Println(r4.Id)
 }
 
 func main() {
-	// TaskZeroMain()
-	TaskOneMain()
+	TaskTwoMain()
 	
 }

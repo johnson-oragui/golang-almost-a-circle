@@ -1,19 +1,9 @@
 package models
 
-/*
-Struct Rectangle:
+import (
+	"errors"
+)
 
-Define a struct named Rectangle that embeds the Base struct.
-Define public fields: Width, Height, x, and y of type int.
-NewRectangle function:
-
-Implement a function named NewRectangle that takes a variable number of int arguments.
-Inside the function:
-Create a new instance of the Rectangle struct using &Rectangle{}.
-Extract values for Width, Height, x, and y from the variadic arguments.
-Create a new Base instance using NewBase and assign it to the embedded Base field of the Rectangle instance.
-Return a pointer to the newly created Rectangle struct.
-*/
 
 type Rectangle struct {
 	Width int
@@ -23,8 +13,71 @@ type Rectangle struct {
 	Base
 }
 
+func (r *Rectangle) setWidth(width int) error {
+	if width <= 0 {
+		return errors.New("width must be > 0")
+	}
+	r.Width = width
+	return nil
+}
 
-func NewRectangle(values...int) *Rectangle {
+func (r *Rectangle) setHeight(height int) error {
+	if height <= 0 {
+		return errors.New("height must be > 0")
+	}
+	r.Height = height
+	return nil
+}
+
+func (r *Rectangle) setX(x int) error {
+	if x < 0 {
+		return errors.New("x must be >= 0")
+	}
+	r.X = x
+	return nil
+}
+
+func (r *Rectangle) setY(y int) error {
+	if y < 0 {
+		return errors.New("y must be >= 0")
+	}
+	r.Y = y
+	return nil
+}
+
+func checkRectangleValues(rectangle *Rectangle, values ...int) error {
+	if len(values) < 2 {
+		return errors.New("width and height must be set and greather than zero")
+	}
+
+	err := rectangle.setWidth(values[0])
+	if err != nil {
+		return err
+	}
+
+	if err := rectangle.setHeight(values[1]); err != nil {
+		return err
+	}
+
+	if len(values) > 2 {
+		if err := rectangle.setX(values[2]); err != nil {
+			return err
+		}
+	}
+	if len(values) > 3 {
+		if err := rectangle.setY(values[3]); err != nil {
+			return err
+		}
+	}
+	if len(values) > 4 {
+		rectangle.Base = *NewBase(values[4])
+	} else{
+		rectangle.Base = *NewBase()
+	}
+	return nil
+}
+
+func NewRectangle(values ...int) (*Rectangle, error) {
 	rectangle := &Rectangle{
 		Width: 0,
 		Height: 0,
@@ -32,33 +85,8 @@ func NewRectangle(values...int) *Rectangle {
 		Y: 0,
 	}
 
-	switch len(values) {
-	case 0:
-		rectangle.Base = *NewBase()
-		return rectangle
-	case 1:
-		rectangle.Width = values[0]
-	case 2:
-		rectangle.Width = values[0]
-		rectangle.Height = values[1]
-	case 3:
-		rectangle.Width = values[0]
-		rectangle.Height = values[1]
-		rectangle.X = values[2]
-	case 4:
-		rectangle.Width = values[0]
-		rectangle.Height = values[1]
-		rectangle.X = values[2]
-		rectangle.Y = values[3]
-	default:
-		rectangle.Width = values[0]
-		rectangle.Height = values[1]
-		rectangle.X = values[2]
-		rectangle.Y = values[3]
-		rectangle.Base = *NewBase(values[4])
-		return rectangle
+	if err := checkRectangleValues(rectangle, values...); err != nil {
+		return nil, err
 	}
-
-	rectangle.Base = *NewBase()
-	return rectangle
+	return rectangle, nil
 }

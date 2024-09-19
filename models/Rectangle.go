@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"fmt"
 )
 
 
@@ -93,4 +94,13 @@ func NewRectangle(values ...int) (*Rectangle, error) {
 
 func (r *Rectangle) Area() int {
 	return r.Height * r.Width
+}
+
+func (r *Rectangle) Display() {
+	for i := 1; i <= r.Height; i++ {
+		for j := 1; j <= r.Width; j++ {
+			fmt.Print("#")
+		}
+		fmt.Println()
+	}
 }

@@ -1,6 +1,9 @@
 package models
 
 import (
+	"bytes"
+	"io"
+	"os"
 	"testing"
 )
 
@@ -118,5 +121,35 @@ func TestRectangleArea(t *testing.T) {
 
 	if area != 6 {
 		t.Errorf("Expected are to be 6, but got %d\n", area)
+	}
+}
+
+func TestDisplay(t *testing.T) {
+	nbObjects = 0
+	rec9, _ := NewRectangle(2,2)
+	// Save the current stdout
+	oldStdout := os.Stdout
+	// Create a pipe to capture stdout
+	r, w, _ := os.Pipe()
+	// redirect stdout to w, and r to read and save it all
+	os.Stdout = w
+
+	// Call the function you want to test
+	rec9.Display()
+	// Close the writer and restore the original stdout
+	w.Close()
+	os.Stdout = oldStdout
+
+	// Read the captured output
+	var buf bytes.Buffer
+	// use io.Copy to copy output saved in r to buf
+	io.Copy(&buf, r)
+
+	// The expected output
+	expectedOutput := "##\n##\n"
+
+	// Check if the output is as expected
+	if buf.String() != expectedOutput {  // buf.String() method retrieves the string content from the buffer
+		t.Errorf("Unexpected output: got %v, want %v", buf.String(), expectedOutput)
 	}
 }

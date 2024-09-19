@@ -266,3 +266,45 @@ johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-
 56
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 
+
+## Task 5
+**Display**
+
+Update the struct Rectangle by adding the public method Display that prints in stdout the Rectangle instance with the character # - you don’t need to handle x and y here.
+
+```
+package main
+
+import (
+	"fmt"
+
+	"github.com/johnson-oragui/golang-almost-a-circle/models"
+)
+
+func TaskFourMain() {
+	rec1, err := models.NewRectangle(4, 6)
+	CheckNilErrorValue(err)
+	rec1.Display()
+
+}
+
+func CheckNilErrorValue(err error) {
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+}
+
+func main() {
+	TaskFourMain()
+}
+
+```
+
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go run Main.go 
+#\ # # #
+#\ # # #
+#\ # # #
+#\ # # #
+#\ # # #
+#\ # # #
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 

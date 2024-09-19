@@ -90,3 +90,7 @@ func NewRectangle(values ...int) (*Rectangle, error) {
 	}
 	return rectangle, nil
 }
+
+func (r *Rectangle) Area() int {
+	return r.Height * r.Width
+}

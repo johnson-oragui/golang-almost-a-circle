@@ -110,3 +110,13 @@ func TestRectangleWithValues(t *testing.T) {
 	}
 
 }
+
+func TestRectangleArea(t *testing.T) {
+	rec8, _ := NewRectangle(3, 2)
+
+	area := rec8.Area()
+
+	if area != 6 {
+		t.Errorf("Expected are to be 6, but got %d\n", area)
+	}
+}

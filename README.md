@@ -217,3 +217,52 @@ width and height must be set and greather than zero
 x must be >= 0
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 
+
+## Task 4
+**Area First**
+
+Update the struct Rectangle by adding the public method Area that returns the area value of the Rectangle instance.
+
+```
+package main
+
+import (
+	"fmt"
+
+	"github.com/johnson-oragui/golang-almost-a-circle/models"
+)
+
+func TaskThreeMain() {
+	rec1, err := models.NewRectangle(3, 2)
+	CheckNilErrorValue(err)
+	fmt.Println(rec1.Area())
+
+	rec2, err := models.NewRectangle(2, 10)
+	CheckNilErrorValue(err)
+	fmt.Println(rec2.Area())
+
+	rec3, err := models.NewRectangle(8, 7, 0, 0, 12)
+	CheckNilErrorValue(err)
+	fmt.Println(rec3.Area())
+}
+
+func CheckNilErrorValue(err error) {
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+}
+
+func main() {
+	TaskThreeMain()
+}
+
+```
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go run Main.go
+
+6
+
+20
+
+56
+
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 

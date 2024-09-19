@@ -318,7 +318,7 @@ johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-
 
 ## Task 6
 **String**
-Update the struct Rectangle by overriding the String method so that it returns "[Rectangle] (<id>) <x>/<y> - <width>/<height>"
+Update the struct Rectangle by overriding the String method so that it returns [Rectangle] (id) x/y - width/height
 ```
 package main
 

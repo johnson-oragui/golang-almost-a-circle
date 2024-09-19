@@ -302,11 +302,11 @@ func main() {
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go run Main.go 
 
-# # # #
-# # # #
-# # # #
-# # # #
-# # # #
-# # # #
+\# \# \# \#
+\# \# \# \#
+\# \# \# \#
+\# \# \# \#
+\# \# \# \#
+\# \# \# \#
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 

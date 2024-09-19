@@ -139,3 +139,81 @@ johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 
 
 File: models/Rectangle.go, models/rectangle_test.go
+
+## Task 3
+**Validate fields**
+
+Update the Rectangle struct in the models package with the following:
+
+Setter Methods:
+
+Implement setter methods for Width, Height, X, and Y.
+Validate the input values:
+If a value is not an integer, return an Error with the message "<field name> must be an integer".
+If Width or Height is less than or equal to 0, return an Error with the message "<field name> must be > 0".
+If X or Y is less than 0, return an Error with the message "<field name> must be >= 0".
+NewRectangle Function:
+
+Modify the NewRectangle function to validate the input values using the setter methods.
+Return an error if any validation fails.
+
+```
+package main
+
+import (
+	"fmt"
+
+	"github.com/johnson-oragui/golang-almost-a-circle/models"
+)
+
+func TaskTwoMain() {
+	if r1, err := models.NewRectangle(10, 2); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+	fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r1.Width, r1.Height, r1.X, r1.Y, r1.Id)
+	}
+
+	if r2, err := models.NewRectangle(12, 0); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+	fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r2.Width, r2.Height, r2.X, r2.Y, r2.Id)
+	}
+
+	if r3, err := models.NewRectangle(10, 2, 0, 0, 12); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+	fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r3.Width, r3.Height, r3.X, r3.Y, r3.Id)
+	}
+
+	if r4, err := models.NewRectangle(10); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+	fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r4.Width, r4.Height, r4.X, r4.Y, r4.Id)
+	}
+	if r5, err := models.NewRectangle(20, 10, -1, -2); err != nil {
+		fmt.Printf("%v\n", err)
+	} else {
+		fmt.Printf("width: %d, height: %d, x: %d, y: %d, Id: %d\n", r5.Width, r5.Height, r5.X, r5.Y, r5.Id)
+	}
+
+}
+
+func main() {
+	TaskTwoMain()
+	
+}
+```
+
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go run Main.go
+
+width: 10, height: 2, x: 0, y: 0, Id: 1
+
+height must be > 0
+
+width: 10, height: 2, x: 0, y: 0, Id: 12
+
+width and height must be set and greather than zero
+
+x must be >= 0
+
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 

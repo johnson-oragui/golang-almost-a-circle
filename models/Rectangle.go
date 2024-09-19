@@ -104,3 +104,7 @@ func (r *Rectangle) Display() {
 		fmt.Println()
 	}
 }
+
+func (r *Rectangle) String() string {
+	return fmt.Sprintf("[Rectangle] (%d) %d/%d - %d/%d", r.Id, r.X, r.Y, r.Width, r.Height)
+}

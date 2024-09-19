@@ -6,10 +6,14 @@ import (
 	"github.com/johnson-oragui/golang-almost-a-circle/models"
 )
 
-func TaskFourMain() {
-	rec1, err := models.NewRectangle(4, 6)
+func TaskSixMain() {
+	rec1, err := models.NewRectangle(4, 6, 2, 1, 12)
 	CheckNilErrorValue(err)
-	rec1.Display()
+	fmt.Println(rec1)
+
+	rec2, err := models.NewRectangle(5, 5, 1)
+	CheckNilErrorValue(err)
+	fmt.Println(rec2)
 
 }
 
@@ -20,5 +24,5 @@ func CheckNilErrorValue(err error) {
 }
 
 func main() {
-	TaskFourMain()
+	TaskSixMain()
 }

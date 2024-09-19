@@ -315,3 +315,46 @@ johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-
 \# \# \# \#
 
 johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 
+
+## Task 6
+**String**
+Update the struct Rectangle by overriding the String method so that it returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
+```
+package main
+
+import (
+	"fmt"
+
+	"github.com/johnson-oragui/golang-almost-a-circle/models"
+)
+
+func TaskSixMain() {
+	rec1, err := models.NewRectangle(4, 6, 2, 1, 12)
+	CheckNilErrorValue(err)
+	fmt.Println(rec1)
+
+	rec2, err := models.NewRectangle(5, 5, 1)
+	CheckNilErrorValue(err)
+	fmt.Println(rec2)
+
+}
+
+func CheckNilErrorValue(err error) {
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+}
+
+func main() {
+	TaskSixMain()
+}
+
+
+```
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ go run Main.go
+
+[Rectangle] (12) 2/1 - 4/6
+
+[Rectangle] (1) 1/0 - 5/5
+
+johnson1@DESKTOP-73V33K8:~/GOCODE/src/github.com/johnson-oragui/golang-almost-a-circle$ 

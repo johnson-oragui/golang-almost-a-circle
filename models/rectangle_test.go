@@ -2,6 +2,7 @@ package models
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"os"
 	"testing"
@@ -151,5 +152,34 @@ func TestDisplay(t *testing.T) {
 	// Check if the output is as expected
 	if buf.String() != expectedOutput {  // buf.String() method retrieves the string content from the buffer
 		t.Errorf("Unexpected output: got %v, want %v", buf.String(), expectedOutput)
+	}
+}
+
+func TestStringFormat(t *testing.T) {
+	nbObjects = 0
+	var buf bytes.Buffer
+
+	rec10, _ := NewRectangle(4, 6, 2, 1, 12)
+
+	oldStout := os.Stdout
+
+	r, w, _ := os.Pipe()
+
+	os.Stdout = w
+
+	fmt.Println(rec10)
+
+	w.Close()
+
+	os.Stdout = oldStout
+
+	io.Copy(&buf, r)
+
+	expectedUoutput := "[Rectangle] (12) 2/1 - 4/6\n"
+
+	output := buf.String()
+
+	if expectedUoutput != output {
+		t.Errorf("Expected rec10 to be %s, but got %s", output, expectedUoutput)
 	}
 }
